@@ -2,4 +2,3 @@
 .cache
 .parcel-cache
 /config.env
-.public/img
