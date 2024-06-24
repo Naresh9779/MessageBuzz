@@ -17,6 +17,7 @@ const DB=process.env.DATABASE.replace(
 )
 // console.log(DB)
 mongoose.connect(DB,{
+   useNewUrlParser: true, useUnifiedTopology: true ,
    
     autoIndex: true, 
 }).then(()=>{
