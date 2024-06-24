@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 const http = require('http');
-const app=require('../app');
+const app=require('./app');
 const dotenv=require('dotenv');
 const User=require('../models/userModel');
 const Chat=require('../models/chatModel');
@@ -89,7 +89,7 @@ const { receiveMessageOnPort } = require('worker_threads');
 
 module.exports.handler = serverless(app);
 
- const port=process.env.PORT||3000;
+//  const port=process.env.PORT||3000;
 //  server.listen(port,()=>{
  
 //  console.log(`listening on port ${port}`);
