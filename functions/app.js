@@ -16,7 +16,7 @@ const xss=require('xss-clean');
 const hpp=require('hpp');
 const compression=require('compression');
 
-
+const allowedOrigins = ['https://netlify-deploy--messagebuzz.netlify.app/'];
 const app = express();
 app.use(bodyParser.json()); 
 app.use(cookieParser());
@@ -28,10 +28,23 @@ app.use(mongoSanitizer());
 
 // used To Avaoid Malicious Html Data
 app.use(xss());
-
+app.use(helmet());
 app.use(hpp());
 app.use(compression());
 app.use(express.json({limit:'10 kb' }));
+app.use(cors({
+    origin: function (origin, callback) {
+      // allow requests with no origin
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg = 'The CORS policy for this site does not ' +
+          'allow access from the specified Origin.';
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
+    credentials: true
+  }));
 
 // const limiter=rateLimiter({
 //     windowMs: 60*60 * 1000,
