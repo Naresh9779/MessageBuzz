@@ -1,0 +1,49 @@
+{
+  "version": "3",
+  "remote": {
+    "https://edge.netlify.com/": "ff84a16f192fdb43db8b9dff869889f555c05857d075044d2a7cfa54c283a0a0",
+    "https://edge.netlify.com/bootstrap/config.ts": "0aa0a225d978b89e0e62cbd853701605199e7a84095e55eeb70147faf1a24803",
+    "https://edge.netlify.com/bootstrap/context.ts": "8f99269eeeeccf9b852e6089cc648c962a0ea20b2198b8b38b38e3b2ce2b9143",
+    "https://edge.netlify.com/bootstrap/cookie.ts": "8b0baae708989ca183c6f3b4ab3d029e6abcbc2e43f93edeb0ff447b3bbc3a05",
+    "https://edge.netlify.com/bootstrap/edge_function.ts": "b8253e86aa83c67341f5cfedeba5049d77fbf84dcab7eceff7566b7728ae9b39",
+    "https://edge.netlify.com/bootstrap/globals.ts": "38f9e0be6c2c78206bf14d2387d41964d38bbe81644b3668e203c6f6473408a7"
+  },
+  "workspace": {
+    "packageJson": {
+      "dependencies": [
+        "npm:ale@^0.1.1",
+        "npm:axios@^1.6.8",
+        "npm:bcrypt@^5.1.1",
+        "npm:body-parser@^1.20.2",
+        "npm:bootstrap@^5.3.3",
+        "npm:compression@^1.7.4",
+        "npm:cookie-parser@^1.4.6",
+        "npm:crypto@^1.0.1",
+        "npm:dotenv@^16.4.5",
+        "npm:ejs@^3.1.9",
+        "npm:express-mongo-sanitize@^2.2.0",
+        "npm:express-rate-limit@^7.3.1",
+        "npm:express-session@^1.18.0",
+        "npm:express@^4.19.2",
+        "npm:google-auth-library@^9.11.0",
+        "npm:googleapis@^140.0.0",
+        "npm:helmet@^7.1.0",
+        "npm:hpp@^0.2.3",
+        "npm:jsonwebtoken@^9.0.2",
+        "npm:mailer@^0.6.7",
+        "npm:mongodb@^6.4.0",
+        "npm:mongoose@^8.2.1",
+        "npm:multer@^1.4.5-lts.1",
+        "npm:node@^20.15.0",
+        "npm:nodemailer@^6.9.14",
+        "npm:nodemon@^3.1.0",
+        "npm:pug@^3.0.3",
+        "npm:serverless-http@^3.2.0",
+        "npm:socket.io-client@^4.7.5",
+        "npm:socket.io@^4.7.5",
+        "npm:ws@^8.17.0",
+        "npm:xss-clean@^0.1.4"
+      ]
+    }
+  }
+}

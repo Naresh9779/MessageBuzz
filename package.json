@@ -1,9 +1,7 @@
 {
   "scripts": {
-    "start": "node server.js",
-    "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js  --out-file bundle.js",
-    "build:js": "parcel build ./public/js/index.js ",
-     "build": "npm run build:js"
+    "build": "echo 'No build step required'",
+    "start": "netlify dev"
   },
   "dependencies": {
     "ale": "^0.1.1",
@@ -32,9 +30,9 @@
     "node": "^20.15.0",
     "nodemailer": "^6.9.14",
     "nodemon": "^3.1.0",
-    "parcel": "^2.12.0",
-    "parcel-bundler": "^1.12.5",
+    
     "pug": "^3.0.3",
+    "serverless-http": "^3.2.0",
     "socket.io": "^4.7.5",
     "socket.io-client": "^4.7.5",
     "ws": "^8.17.0",

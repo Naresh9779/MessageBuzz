@@ -1,10 +1,11 @@
 
 const mongoose = require('mongoose');
 const http = require('http');
-const app=require('./app');
+const app=require('../app');
 const dotenv=require('dotenv');
-const User=require('./models/userModel');
-const Chat=require('./models/chatModel');
+const User=require('../models/userModel');
+const Chat=require('../models/chatModel');
+const serverless = require('serverless-http');
 
 dotenv.config({path:'./config.env'});
 const server = http.createServer(app);
@@ -86,13 +87,13 @@ const { receiveMessageOnPort } = require('worker_threads');
 });
 
 
-
+module.exports.handler = serverless(app);
 
  const port=process.env.PORT||3000;
- server.listen(port,()=>{
+//  server.listen(port,()=>{
  
- console.log(`listening on port ${port}`);
+//  console.log(`listening on port ${port}`);
  
- });
+//  });
 
  
