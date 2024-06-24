@@ -195,9 +195,7 @@ a{
     height: 100%;
     object-fit: cover
 }
-.container-down{
-    margin-top: 2rem;
-}
+
 
 @media(max-width:450px) {
     .left-side{
@@ -214,17 +212,8 @@ a{
         gap:2rem
     }
     .middle-container{
-        width:200%;
+        width:230%;
     }
-    .container-down{
-        flex-direction: column;
-        width: 200%;
-        /* margin: auto; */
-        align-items: flex-end;
-      
-    }
-    #c{
-        width: 76%;
-    }
+   
     
   }
