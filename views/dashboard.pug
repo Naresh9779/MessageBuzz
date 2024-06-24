@@ -1,0 +1,43 @@
+include header 
+  
+  -if(user)
+   
+   
+
+    h1.mb-4 
+        img(src=`img/users/${user.image}`,id="avatar", alt="dp")
+        span=`Hi ,${user.name}`
+        .row
+          .col-md-4.reciver-user
+            ul.list-group
+              each u in users 
+               
+                li(class="list-group-item list-group-item-dark user-item" id="user-list" data-id=u._id)
+                    img(src=`img/users/${u.image}`,id="avatar", alt="dp")
+                    -if(u.name.length>12)
+                     a#user-name= u.name.slice(0,12)+"..."
+                    -else
+                     a#user-name= u.name
+                    -if(u.is_active=='1')
+                       .logged-in(id=`${u._id}-status`) ● online
+                    -else
+                       .logged-of(id=`${u._id}-status`) ● offline  
+                    
+                    -if(u.read==false)
+                      .new-message *New Messages
+                      
+          
+          
+          .col-md-8
+              h3.class-header.start-head  Click To Start Chat Or 
+                a(href="/friends") Add New Friends
+              .chat-section
+                .chat-sect
+                  div(id="chat-container" class="container-chat"  data-id=user._id)
+                    
+                  form#chat-form
+                    input(type="text" ,required="true",id="message",placeholder="Enter A Message" class="border")
+                  
+                    input(type="button",class="btn btn-primary",value="Send Message",id="message-btn")
+include footer
+

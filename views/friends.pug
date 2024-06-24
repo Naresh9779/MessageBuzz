@@ -1,0 +1,50 @@
+include header 
+
+
+  style.
+      
+      h1 {
+        //- color: #007bff;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+     .add ,.added{
+    height: 2rem;
+    width: 2rem;
+    
+    float: right;
+     margin-top: 1rem;
+   
+
+   }
+   .add:hover{
+    
+    
+   }
+  body
+  .friend-container
+  
+   .col-md-6.reciver-user
+            h1.friend-heading Add Friends
+            ul.list-group
+            -if(friends.length<=0)
+              p No Friend avaliable 
+            -else  
+              each u in friends
+               
+                li(class="list-group-item list-group-item-dark user-item" id="user-list" data-id=u._id)
+                    img(src=`img/users/${u.image}`,id="avatar", alt="dp")
+                    
+                    -if(u.name.length>12)
+                     a#user-name= u.name.slice(0,12)+"..."
+                    -else
+                     a#user-name= u.name
+                    img.add(src="img/users/logo/add.png", alt="add")
+                    img.added(src="img/users/logo/added.webp",alt="added",style="display:none")
+                    -if(u.is_active=='1')
+                       .logged-in(id=`${u._id}-status`) ● online
+                    -else
+                       .logged-of(id=`${u._id}-status`) ● offline  
+                   
+
+include footer 

@@ -1,0 +1,62 @@
+doctype html
+head
+  title MessageBuzz | #{title}
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900' rel='stylesheet')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+  
+  
+  link(rel="icon" type="image/png" href="img/users/logo/logo.png")
+  link(rel='stylesheet' href='css/style.css')
+  //- script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js" )
+  script(src="https://cdn.socket.io/4.0.0/socket.io.min.js")
+  script(type="module", src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js")
+  script(nomodule, src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js")
+
+  //- -if(user)
+ 
+  
+ 
+  
+  
+
+
+
+.wrapper.d-flex.align-items-stretch
+  nav#sidebar
+    .custom-menu
+      button#sidebarCollapse.btn.btn-primary(type='button')
+        i.fa.fa-bars
+        span.sr-only Toggle Menu
+    h1
+      a.logo(href='/') MessageBuzz
+    ul.list-unstyled.components.mb-5
+      li.active
+        a(href='/')
+          span.fa.fa-home.mr-3
+          |  Homepage
+      li
+        a(href='/dashboard')
+          span.fa.fa-user.mr-3
+          |  Dashboard
+      li
+        a(href='/friends')
+          span.fa.fa-sticky-note.mr-3
+          |  Friends
+     
+      li
+        a(href='/setting')
+          span.fa.fa-paper-plane.mr-3
+          |  Settings
+      -if(user)  
+        li#sign-out
+            a(href='#')
+              span.fa.fa-sign-out.mr-3
+              | Logout
+    // Page Content
+  #content.p-4.p-md-5.pt-5
+    h1
+    
+    
+      

@@ -1,0 +1,25 @@
+doctype html
+head
+  title MessageBuzz | #{title}
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900' rel='stylesheet')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel="icon" type="image/png" href="img/users/logo/logo.png")
+  link(rel='stylesheet' href='css/style.css')
+
+body
+     
+    .login-container    
+        form.form--login
+            
+            h1 Login ,To Get Start
+            .input-container
+                label Email
+                input#email(type="email",placeholder="email",required)
+                label Password
+                input#password(type="password",placeholder="password",required)
+                a(href='/forgotPassword' target="_blank")#pass-forget Forgot Password? 
+            a.login--btn#loginbtn Login
+//- script(src='/js/bundle.js')
+include footer 

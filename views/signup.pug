@@ -1,0 +1,48 @@
+doctype html
+head
+  title MessageBuzz | #{title}
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900' rel='stylesheet')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+  link(rel="icon" type="image/png" href="img/users/logo/logo.png")
+  link(rel='stylesheet' href='css/style.css')
+    
+    
+body 
+
+
+
+        .signup-container    
+                form.form--signup
+                    h1 Signup Now
+                    .image-preview#image-preview
+                   
+                    input.image-upload(type='file' ,accept='image/*',id='photo',name='photo')
+                    label(for="photo") Choose Image 
+
+                    label Name
+                    input#name(type="name",placeholder="Naresh Thapa",required)
+                    label Email
+                    input#email(type="email",placeholder="email",required)
+                    label Password
+                    input#password(type="password",placeholder="password",required)
+                    button.signup--btn#signupbtn Register
+                  
+
+script.
+      document.getElementById('photo').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            const preview = document.getElementById('image-preview');
+            preview.innerHTML = `<img src="${e.target.result}" id="image" alt="Image Preview">`;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+//- script(src='/js/bundle.js')
+include footer
+
+
