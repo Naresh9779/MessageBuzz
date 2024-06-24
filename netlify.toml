@@ -1,4 +1,6 @@
 [build]
-  command = "npm install"
-  command="npm start"
+  command = "npm install npm start"
+  publish = "/"
 
+[context.production.environment]
+  NODE_ENV = "production"
