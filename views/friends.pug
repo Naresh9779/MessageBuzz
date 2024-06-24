@@ -27,7 +27,7 @@ include header
    .col-md-6.reciver-user
             h1.friend-heading Add Friends
             ul.list-group
-            -if(friends.length<=0)
+            -if(!friends||friends.length<=0)
               p No Friend avaliable 
             -else  
               each u in friends

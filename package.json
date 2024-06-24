@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "build": "echo 'No build step required'",
+    "build:pug": "pug views/ --out ./public",
+    "build": "npm run build:pug",
     "start": "netlify dev"
   },
   "dependencies": {
@@ -43,5 +44,8 @@
   "description": "A New Chat Applicatiuon",
   "main": "server.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "pug-cli": "^1.0.0-alpha6"
+  }
 }
