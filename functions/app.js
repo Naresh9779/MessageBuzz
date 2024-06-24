@@ -15,6 +15,7 @@ const mongoSanitizer = require('express-mongo-sanitize');
 const xss=require('xss-clean');
 const hpp=require('hpp');
 const compression=require('compression');
+const cors=require('cors');
 
 const allowedOrigins = ['https://netlify-deploy--messagebuzz.netlify.app/'];
 const app = express();
@@ -22,6 +23,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(process.cwd(), 'public')));
 app.set('view engine', 'pug');
+
 
 //Used To Sanitize Malicious Mongo Query
 app.use(mongoSanitizer());
