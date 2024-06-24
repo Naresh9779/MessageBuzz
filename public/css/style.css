@@ -497,7 +497,8 @@ mark,
   }
   .alert {
     position: fixed;
-    top: 0;
+   
+    margin-top: 1rem;
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -508,7 +509,7 @@ mark,
     text-align: center;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    /* padding: 1.6rem 15rem; */
+    padding: 1rem 5rem;
     -webkit-box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
   }
@@ -607,7 +608,9 @@ mark,
     margin-top: 1rem;
     font-weight: bold;
   }
-
+  #password-container{
+    padding: auto;
+  }
   @media (min-width: 576px) {
     .container {
       max-width: 540px; } }
@@ -1738,6 +1741,8 @@ a[data-toggle="collapse"] {
   {
     .user-view__content{
       flex-direction: column;
+      padding-right: 1rem;
+      padding-left: 1rem;
       
     }
     .user-view__form-container{

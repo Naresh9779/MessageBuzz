@@ -76,6 +76,7 @@ exports.createUser=catchAsync(async(req,res)=>{
  
 
     createAndSendToken(newUser,201,res)
+
    await new Email(newUser).sendWelcome();
 
     
@@ -314,6 +315,7 @@ exports.addFriend=async(req, res, next)=>{
         return next(new AppError('Already Friends',400));
     }
     user.friends.push(friend._id);
+    friend.friends.push(user._id)
     await user.save();
     res.status(200).json({
         status:'success',

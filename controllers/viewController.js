@@ -53,8 +53,21 @@ exports.dashboard=async(req,res)=>{
     
       return user;
     });
+    updatedUsers.sort((a, b) => {
+        if (a.read === false && b.read !== false) {
+          return -1;
+        } else if (a.read !== false && b.read === false) {
+          return 1; 
+        } else {
+          return 0; 
+        }
+      });
+
+     
+  
     
     users=updatedUsers;
+
     // console.log(updatedUsers);
     
    

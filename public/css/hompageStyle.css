@@ -6,11 +6,13 @@
     padding: 0;
 }
 body{
+    box-sizing: border-box;
     background-color:white;
     background-image: url('https://www.chitchat.gg/_astro/lines.60d0740f_pAitz.svg');
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 2rem 10rem;
+    background-size:cover;
+    /* background-position: 2rem 10rem;
+    background-position: 2rem 10rem; */
     font-family: "Balsamiq Sans", sans-serif;
     color: black;
 
@@ -28,6 +30,7 @@ a{
 .navBar{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     /* color: #007bff; */
     justify-content: space-between;
     /* margin: 2rem 1rem 4rem 4rem; */
@@ -140,14 +143,60 @@ a{
     background-color: rgb(80, 80, 202);
 
 }
-.chat-photo{
-    mix-blend-mode:multiply;
+.right-side{
+    width: 100%;
+    height: 300px; /* or any specific height */
+    overflow: hidden;
+}
+#chat-photo{
+    /* mix-blend-mode:multiply; */
+   align-self: flex-end;
+   margin-right: 1rem;
 
 }
 .chat-btn:hover{
     background-color: rgb(19, 10, 10);
     cursor: pointer;
 
+}
+.middle-container{
+    width: 100%;
+}
+.middle{
+   
+    margin-top: 2rem;
+    display: flex;
+    gap:1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.middle-heading{
+    font-size: 2rem;
+    
+    
+    -webkit-text-fill-color: color-mix(in srgb, blue 20, white 40);
+    /* text-align: center; */
+}
+.first-heading{
+    background-color:#007bff;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.middle-para{
+    width: 40%;
+    font-size: 1rem;
+}
+.chat-photo{
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+.container-down{
+    margin-top: 2rem;
 }
 
 @media(max-width:450px) {
@@ -158,4 +207,24 @@ a{
     .chat-btn{
         width:30%;
     }
+    .navBar{
+        flex-wrap: nowrap;
+    }
+    .navBar-list{
+        gap:2rem
+    }
+    .middle-container{
+        width:200%;
+    }
+    .container-down{
+        flex-direction: column;
+        width: 200%;
+        /* margin: auto; */
+        align-items: flex-end;
+      
+    }
+    #c{
+        width: 76%;
+    }
+    
   }
