@@ -2,7 +2,8 @@
   "scripts": {
     "build:pug": "pug views/ --out ./public/views",
     "build": "npm run build:pug",
-    "start": "netlify dev"
+    "start": "netlify dev",
+    "dev":"node sever.js"
   },
   "dependencies": {
     "ale": "^0.1.1",
