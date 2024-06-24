@@ -2,5 +2,5 @@
   command = "npm install"
   publish = "/"
 
-[context.production.environment]
-  NODE_ENV = "production"
+[dev]
+  command = "npm run start"
