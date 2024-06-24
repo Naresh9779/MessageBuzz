@@ -1,9 +1,5 @@
-/*!
- * Bootstrap v4.3.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 The Bootstrap Authors
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 :root {
   --blue: #007bff;
 
@@ -43,7 +39,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: -apple-system, "Balsamiq Sans", sans-serif,BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -63,6 +59,9 @@ hr {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem; }
+  h4{
+    font-weight: 400;
+  }
 
 p {
   margin-top: 0;
@@ -114,10 +113,13 @@ sup {
 a {
   color: #007bff;
   text-decoration: none;
-  background-color: transparent; }
+  background-color: transparent;
+  }
   a:hover {
-    color: #0056b3;
-    text-decoration: underline; }
+    color: #007bff;;
+    transition: all .7s ease-in;
+   }
+   
 
 a:not([href]):not([tabindex]) {
   color: inherit;
@@ -185,87 +187,7 @@ button{
   cursor: pointer;
 }
 
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto; }
 
-[type="search"] {
-  outline-offset: -2px;
-  -webkit-appearance: none; }
-
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none; }
-
-::-webkit-file-upload-button {
-  font: inherit;
-  -webkit-appearance: button; }
-
-output {
-  display: inline-block; }
-
-summary {
-  display: list-item;
-  cursor: pointer; }
-
-template {
-  display: none; }
-
-[hidden] {
-  display: none !important; }
-
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  line-height: 1.2; }
-
-h1, .h1 {
-  font-size: 2.5rem; }
-
-h2, .h2 {
-  font-size: 2rem; }
-
-h3, .h3 {
-  font-size: 1.75rem; }
-
-h4, .h4 {
-  font-size: 1.5rem; }
-
-h5, .h5 {
-  font-size: 1.25rem; }
-
-h6, .h6 {
-  font-size: 1rem; }
-
-.lead {
-  font-size: 1.25rem;
-  font-weight: 300; }
-
-.display-1 {
-  font-size: 6rem;
-  font-weight: 300;
-  line-height: 1.2; }
-
-.display-2 {
-  font-size: 5.5rem;
-  font-weight: 300;
-  line-height: 1.2; }
-
-.display-3 {
-  font-size: 4.5rem;
-  font-weight: 300;
-  line-height: 1.2; }
-
-.display-4 {
-  font-size: 3.5rem;
-  font-weight: 300;
-  line-height: 1.2; }
-
-hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
 small,
 .small {
@@ -289,18 +211,6 @@ mark,
   display: inline-block; }
   .list-inline-item:not(:last-child) {
     margin-right: 0.5rem; }
-
-
-
- 
-
-
-
-
-
-
-
-
 
 .pre-scrollable {
   max-height: 340px;
@@ -385,6 +295,7 @@ mark,
     font-size: 1rem;
     padding: 10px;
     border-radius: 10px;
+    font-weight: 500;
     margin: 5px 6px;
     max-width: 60%;
 
@@ -408,12 +319,14 @@ mark,
   }
   .nav-bar-chat h4{
     color: white;
-     font: weight 1rem;;
+    font-size: 1 rem;
+     
   }
   .sender-user {
     user-select:none;
     background-color: #f1f1f1;
     font-size: 1rem;
+    font-weight: 500;
     padding: 10px;
     border-radius: 10px;
     margin: 5px 6px;
@@ -460,6 +373,7 @@ mark,
     border:none;
     border-radius: 1rem;
     box-shadow: -2px -2px 12px grey;
+    font-family: inherit;
 
     width:100%;
   }
@@ -1578,7 +1492,7 @@ mark,
 
 
 .p-4 {
-  padding: 1.5rem !important; }
+  padding: 2.5rem !important; }
 
 .pt-4,
 .py-4 {

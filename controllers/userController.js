@@ -211,15 +211,15 @@ exports.updateMe=catchAsync(async(req,res,next)=>
         }
 
         const updatedObj=filterObj(req.body,'name','email');
-        console.log(updatedObj);
-        console.log(req.file);
+        // console.log(updatedObj);
+        // console.log(req.file);
         if(req.file)
          updatedObj.image=req.file.filename;
           const updatedUser=await User.findByIdAndUpdate(req.user._id,updatedObj,{
             new:true,
             runValidators:true
         });
-        console.log(updatedUser);
+        // console.log(updatedUser);
    
     res.status(200).json({
         status:'success',
@@ -238,10 +238,10 @@ exports.updatePassword= catchAsync(async (req,res,next) => {
    
 
     const user=await User.findById(req.user.id).select('+password');
-    console.log(user);
+    // console.log(user);
 
     if(! (await user.confirmPassword(req.body.passwordCurrent,user.password))) {
-        console.log("error");
+        // console.log("error");
         return next (new AppError('Enter Invalid Current Password',401));}
 
   user.password=req.body.password;
@@ -281,12 +281,12 @@ exports.forgotPassword = catchAsync(async(req, res, next)=>{
 
 
 exports.resetPassword=catchAsync(async(req,res,next)=>{
-    console.log(req.params.token);
+    // console.log(req.params.token);
     const resetToken=req.params.token;
-    console.log(resetToken);
+    // console.log(resetToken);
     
     const hashedToken=crypto.createHash('sha256').update(resetToken).digest('hex');
-    console.log(hashedToken);
+    // console.log(hashedToken);
     const user=await User.findOne({passwordResetToken:hashedToken,resetTokenExpires:{$gt:Date.now()}});
     if(!user)
     {
@@ -303,7 +303,7 @@ exports.resetPassword=catchAsync(async(req,res,next)=>{
 
 exports.addFriend=async(req, res, next)=>{
     const user=await User.findById(req.user.id);
-    console.log(req.body.friendId);
+    // console.log(req.body.friendId);
     const friend=await User.findById(req.body.friendId);
     if(!friend)
     {

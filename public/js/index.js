@@ -101,7 +101,7 @@ if(resetPasswords){
   
     resetButton.addEventListener('click', async function(e) {
       e.preventDefault();
-      console.log('reset');
+    //   console.log('reset');
   
       const fullPath = window.location.pathname;
       const token = fullPath.split('/').pop();
@@ -120,7 +120,7 @@ if(friends)
     {
         
         const friendsList=document.querySelectorAll('.user-item');
-        console.log(friendsList);
+        // console.log(friendsList);
         friendsList.forEach(friend=>{
             friend.querySelector('.add').addEventListener('click',async e=>{
                 e.preventDefault();

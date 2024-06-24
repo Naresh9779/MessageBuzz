@@ -26,7 +26,7 @@ export const signHelper= async(data)=>{
     }
     catch(err)
     {
-      console.log(err)
+      // console.log(err)
       showAlert("error",`${err.response.data.message}`);
       window.setTimeout(()=>{
   

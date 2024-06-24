@@ -11,7 +11,7 @@ export const  forgetPassword=async(email)=>{
                 email
             }
         })
-        console.log(res.data);
+        // console.log(res.data);
         if(res.data.status==="success"){
             setTimeout(function() {
                 showAlert('success','Email 📧 Sent sucessfully')

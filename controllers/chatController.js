@@ -24,7 +24,7 @@ exports.deleteChat=async(req,res)=>{
 
 
     const chatId=req.body.id;
-    console.log(chatId);
+    // console.log(chatId);
     const chat=await Chat.findByIdAndDelete({_id:chatId});
     if(!chat){
         return res.status(404).json({

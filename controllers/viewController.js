@@ -9,7 +9,7 @@ exports.homePage=(req,res,next)=>{
     })
 }
 exports.isAuthenticated=(req,res,next)=>{
-    console.log(req.user);
+    // console.log(req.user);
     if(req.user)
         {
             return res.status(200).render('homePage',{
@@ -99,7 +99,7 @@ exports.friends=async (req,res)=>{
           $nin: user.friends.concat(user._id) 
         } 
       });
-    console.log(friends);
+    // console.log(friends);
 
     res.status(200).render('friends',{
         friends,

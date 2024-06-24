@@ -64,7 +64,7 @@ const updatePassword=async(passwordCurrent,password)=>{
 
       
     })
-    console.log(res);
+    // console.log(res);
     if(res.data.status=='success')
       {
         showAlert("success","Password Updated Sucessfully");

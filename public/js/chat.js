@@ -77,11 +77,11 @@ const socket = io('/username-space', {
       $('#chat-container').html(' ');
 
 
-      console.log(socket.emit('loadOldChat', {
+     socket.emit('loadOldChat', {
 
         sender_id,
         reciever_id
-      }))
+      })
 
 
 
@@ -91,10 +91,10 @@ const socket = io('/username-space', {
 
   
   socket.on('connect', () => {
-    console.log('Connected to username-space');
+    // console.log('Connected to username-space');
   });
   socket.on('disconnect', () => {
-    console.log('Disconnected from username-space');
+    // console.log('Disconnected from username-space');
   });
   socket.on('getOnlineUser', function (data) {
     //- console.log(data);
@@ -136,10 +136,10 @@ const socket = io('/username-space', {
             </div>`;
           
   
-      console.log(socket.emit('readChat',{
+      socket.emit('readChat',{
               sender_id,
               reciever_id
-       }))
+       })
       document.getElementById('chat-container').insertAdjacentHTML('beforeend', html);
       const chatContainer = document.getElementById('chat-container');
       
@@ -159,7 +159,7 @@ const socket = io('/username-space', {
 
   socket.on('existingChat', async function (data) {
 
-    console.log('sucessfully loaded');
+    // console.log('sucessfully loaded');
     const chats = data.chat
     // console.log(data.reciever);
     if (data.reciever)
@@ -170,7 +170,7 @@ const socket = io('/username-space', {
                                <h4>${data.reciever.name}</h4>
                             <nav>`;
                          
-  document.querySelector("#chat-container").insertAdjacentHTML('beforeend', newHtml);
+ await document.querySelector("#chat-container").insertAdjacentHTML('beforeend', newHtml);
     
     for (let i = 0; i < chats.length; i++) {
     
@@ -257,7 +257,7 @@ const socket = io('/username-space', {
           id: chatId
         }
       });
-      console.log(res.data);
+      // console.log(res.data);
       if (res.data.status === 'success') {
         div.remove();
         socket.emit('chatDeleted', chatId);
@@ -294,7 +294,7 @@ socket.on('chatDeleted', function (data)
         }
 
       })
-      console.log(res.data);
+      // console.log(res.data);
 
       if (res.data.status == "success") {
         let mesg = res.data.data.message;
