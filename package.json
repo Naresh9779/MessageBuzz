@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build:pug": "pug views/ --out ./public",
+    "build:pug": "pug views/ --out ./public/views",
     "build": "npm run build:pug",
     "start": "netlify dev"
   },
@@ -46,6 +46,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    
+    "pug-cli": "^1.0.0-alpha6"
   }
 }
