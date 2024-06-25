@@ -1,13 +1,13 @@
 const express = require('express');
-const userRouter=require('../routes/userRoutes')
-const chatRouter=require('../routes/chatRoutes')
+const userRouter=require('./routes/userRoutes')
+const chatRouter=require('./routes/chatRoutes')
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const path=require('path');
-const viewRouter=require('../routes/viewRouter');
+const viewRouter=require('./routes/viewRouter');
 const { Http2ServerRequest } = require('http2');
-const globalErrorHandler = require('../controllers/errorController');
-const AppError=require('../utils/appError')
+const globalErrorHandler = require('./controllers/errorController');
+const AppError=require('./utils/appError')
 
 const rateLimiter=require('express-rate-limit');
 const helmet=require('helmet');

@@ -36,7 +36,6 @@
     "serverless-http": "^3.2.0",
     "socket.io": "^4.7.5",
     "socket.io-client": "^4.7.5",
-    "ws": "^8.17.0",
     "xss-clean": "^0.1.4"
   },
   "name": "messenger",

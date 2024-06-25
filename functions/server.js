@@ -1,7 +1,7 @@
 
 const mongoose = require('mongoose');
 const http = require('http');
-const app=require('./app');
+const app=require('../app');
 const dotenv=require('dotenv');
 const User=require('../models/userModel');
 const Chat=require('../models/chatModel');
