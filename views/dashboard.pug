@@ -13,7 +13,7 @@ include header
               each u in users 
                
                 li(class="list-group-item list-group-item-dark user-item" id="user-list" data-id=u._id)
-                    img(src=`https://messagebuzz.onrender.com/img/users/${u.image}`,id="avatar", alt="dp")
+                    img(src=`https://messagebuzz.onrender.com/public/img/users/${u.image}`,id="avatar", alt="dp")
                     -if(u.name.length>12)
                      a#user-name= u.name.slice(0,12)+"..."
                     -else
