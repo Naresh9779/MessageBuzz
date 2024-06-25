@@ -78,8 +78,7 @@ MessageBuzz is a real-time chat application built using Node.js, Express.js, Mon
 - **Socket.io**: Real-time communication library.
 - **Mongoose**: MongoDB object modeling tool.
 - **bcryptjs**: Password hashing library.
-- **express-session**: Session management middleware.
-- **connect-mongo**: MongoDB session store for Express.
+-**Axios**: For Using Rest API in Front End
 
 ## Contributing
 
