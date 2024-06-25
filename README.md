@@ -8,6 +8,8 @@
 
 MessageBuzz is a real-time chat application built using Node.js, Express.js, MongoDB, Pug, and Socket.io,Rest API. This application allows users to send messages in real-time, view online/offline statuses, update their profiles, reset their passwords, and add random friends.
 
+### [API Documentation](https://documenter.getpostman.com/view/29729601/2sA3XY7deX)
+
 ## Features
 
 - 📩 **Real-Time Messaging**: Instant message delivery using Socket.io.
