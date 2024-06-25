@@ -4,7 +4,7 @@ const Chat = require("../models/chatModel")
 
 
 exports.homePage=(req,res,next)=>{
-    res.status(200).render('homePage',{
+    res.status(200).render('homepage',{
         title:'Home Page'
     })
 }
@@ -12,7 +12,7 @@ exports.isAuthenticated=(req,res,next)=>{
     // console.log(req.user);
     if(req.user)
         {
-            return res.status(200).render('homePage',{
+            return res.status(200).render('homepage',{
                  title:'Home Page'
             })        }
     return next();
@@ -89,7 +89,7 @@ exports.setting=(req,res) => {
 }
 
 exports.forgotPassword=(req,res) => {
-    res.status(200).render('forgotPassword',{
+    res.status(200).render('forgotpassword',{
         title:'Forgot Password'
     })
 }
@@ -98,7 +98,7 @@ exports.logout=(req,res)=>{
 }
 
 exports.resetPassword=(req,res)=>{
-    res.status(200).render('resetPassword',{
+    res.status(200).render('resetpassword',{
         title:'Reset Password'
     })
 }
