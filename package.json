@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "build:pug": "pug views/ --out ./public/views",
-    "build": "npm run build:pug",
+    
     "start": "netlify dev",
     "dev":"node sever.js"
   },
