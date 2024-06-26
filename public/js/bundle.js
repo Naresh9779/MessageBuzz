@@ -10228,8 +10228,10 @@ var initSettings = exports.initSettings = function initSettings() {
             form.append('name', document.getElementById('name').value);
             form.append('email', document.getElementById('email').value);
             form.append('image', document.getElementById('photo').files[0]);
-            update(form);
-          case 6:
+            document.getElementById('updatebtn').textContent = "Updating....";
+            _context.next = 8;
+            return update(form);
+          case 8:
           case "end":
             return _context.stop();
         }
@@ -10360,6 +10362,7 @@ var _signup = require("./signup");
 var _login = require("./login");
 var _auth = require("./auth");
 var _addFriend = require("./addFriend");
+var _alert = require("./alert.js");
 var _chat = require("./chat.js");
 var _settings = require("./settings.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
@@ -10398,8 +10401,10 @@ if (signup) {
             form.append('email', document.getElementById('email').value);
             form.append('password', document.getElementById('password').value);
             form.append('image', document.getElementById('photo').files[0]);
-            (0, _signup.signHelper)(form);
-          case 7:
+            document.getElementById('signupbtn').textContent = 'Registering ..';
+            _context.next = 9;
+            return (0, _signup.signHelper)(form);
+          case 9:
           case "end":
             return _context.stop();
         }
@@ -10420,8 +10425,10 @@ if (login) {
             e.preventDefault();
             email = document.getElementById('email').value;
             password = document.getElementById('password').value;
-            (0, _login.loginHelper)(email, password);
-          case 4:
+            document.getElementById('loginbtn').textContent = 'Loging In ...';
+            _context2.next = 6;
+            return (0, _login.loginHelper)(email, password);
+          case 6:
           case "end":
             return _context2.stop();
         }
@@ -10532,7 +10539,7 @@ if (friends) {
     }());
   });
 }
-},{"./signup":"signup.js","./login":"login.js","./auth":"auth.js","./addFriend":"addFriend.js","./chat.js":"chat.js","./settings.js":"settings.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./signup":"signup.js","./login":"login.js","./auth":"auth.js","./addFriend":"addFriend.js","./alert.js":"alert.js","./chat.js":"chat.js","./settings.js":"settings.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -10557,7 +10564,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52661" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62269" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

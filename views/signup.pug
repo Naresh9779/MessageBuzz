@@ -18,15 +18,15 @@ body
                     h1 Signup Now
                     .image-preview#image-preview
                    
-                    input.image-upload(type='file' ,accept='image/*',id='photo',name='photo')
+                    input.image-upload(type='file' ,accept='image/*',id='photo',name='photo' ,required=true)
                     label(for="photo") Choose Image 
 
                     label Name
-                    input#name(type="name",placeholder="Naresh Thapa",required)
+                    input#name(type="name",placeholder="Naresh Thapa",required=true)
                     label Email
-                    input#email(type="email",placeholder="email",required)
+                    input#email(type="email",placeholder="email",required=true)
                     label Password
-                    input#password(type="password",placeholder="password",required)
+                    input#password(type="password",placeholder="password",required=true)
                     button.signup--btn#signupbtn Register
                   
 

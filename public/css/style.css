@@ -301,7 +301,9 @@ mark,
 
   }
  
- 
+  button:focus{
+    border: none;
+  }
   .nav-bar-chat{
     background-color:black;
     display: flex;

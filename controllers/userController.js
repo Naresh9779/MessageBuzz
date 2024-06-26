@@ -7,26 +7,70 @@ const multer=require('multer')
 const {promisify}=require('util');
 const Email=require('../utils/email');
 const crypto = require('crypto');
+const {S3}=require('aws-sdk');
+const dotenv=require('dotenv');
+
+dotenv.config({path:'../config.env'});
 
 
 
-const multerStorage=multer.diskStorage({destination:(req,file,cb)=>
-  {cb(null,'public/img/users');
 
-},
-filename:(req,file,cb)=>{
-  const ext=file.mimetype.split('/')[1];
-  const fileName=`user-${Date.now()}.${ext}`;
-  cb(null,fileName);
+// const multerStorage=multer.diskStorage({destination:(req,file,cb)=>
+//   {cb(null,'public/img/users');
+
+// },
+// filename:(req,file,cb)=>{
+//   const ext=file.mimetype.split('/')[1];
+//   const fileName=`user-${Date.now()}.${ext}`;
+//   cb(null,fileName);
+// }});
+
+const storage=multer.memoryStorage();
+
+
+const fileFilter=(req,file,cb)=>{
+    if(file.mimetype.startsWith('image')){
+        const ext=file.mimetype.split('/')[1];
+       const fileName=`user-${Date.now()}.${ext}`;
+          file.fileName=fileName;
+        cb(null,true);
+    }else{
+        cb(new AppError('Not an image! Please upload only images',400),false);
+    }
 }
-});
 
 
+const uploadImg=multer({
+    storage,
+    fileFilter,
+    
+    limits:{fileSize:1000000000000}
 
-uploadImg=multer({storage:multerStorage})
+})
+
 exports.upload=uploadImg.single('image');
 
 
+
+
+s3Upload=async(req,res,next)=>{
+    console.log(req.file.fileName);
+
+  const s3=new S3({
+        accessKeyId:process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey:process.env.AWS_SECRET_ACCESS_KEY,
+        region:process.env.AWS_REGION
+    });
+    const params={
+        Bucket:process.env.aws_bucket_name,
+        Key:`img/users/${req.file.fileName}`,
+        Body:req.file.buffer,
+        
+    };
+    await s3.upload(params).promise();
+   
+}
+    
 
 
 
@@ -62,22 +106,28 @@ const createAndSendToken=(user,statusCode,res)=>{
 
 }
 
-exports.createUser=catchAsync(async(req,res)=>{
+exports.createUser=catchAsync(async(req,res,next)=>{
    
-    // console.log(req.file);
+  if(!req.file){
+    return next(new AppError('Please upload an image',400));
+  }
     const nUser={
        name:req.body.name,
        email:req.body.email,
        password:req.body.password,
-       image:req.file.filename
+       image:req.file.fileName
 
     }
+
     const newUser =await User.create(nUser);
- 
+    await  s3Upload(req);
+    
 
-    createAndSendToken(newUser,201,res)
+     createAndSendToken(newUser,201,res)
+     await new Email(newUser).sendWelcome();
 
-   await new Email(newUser).sendWelcome();
+   
+  
 
     
  
@@ -215,11 +265,14 @@ exports.updateMe=catchAsync(async(req,res,next)=>
         // console.log(updatedObj);
         // console.log(req.file);
         if(req.file)
-         updatedObj.image=req.file.filename;
+         {updatedObj.image=req.file.fileName;
+            await  s3Upload(req);
+         }
           const updatedUser=await User.findByIdAndUpdate(req.user._id,updatedObj,{
             new:true,
             runValidators:true
         });
+       
         // console.log(updatedUser);
    
     res.status(200).json({

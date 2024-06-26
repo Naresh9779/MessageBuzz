@@ -17,6 +17,7 @@ const userSchema=new mongoose.Schema({
         required:[true,'Enter a valid password']
     },image:{
         type:String,
+        required:[true,'Choose a  image']
         // required:true
     },
     is_active:{
@@ -26,7 +27,7 @@ const userSchema=new mongoose.Schema({
     passwordResetToken:String,
     resetTokenExpires:Date,
     friends:{ type: [mongoose.Schema.Types.ObjectId], 
-    default: [new mongoose.Types.ObjectId('6672c0bf704f05effb4a5b08')] }
+    default: [new mongoose.Types.ObjectId('667ba9f99cb6ef41355e5017')] }
 },{timestamps:true})
 
 

@@ -11,8 +11,12 @@ form.addEventListener('submit',async(e)=>{
    form.append('name',document.getElementById('name').value)
    form.append('email',document.getElementById('email').value)
    form.append('image',document.getElementById('photo').files[0])
-
-   update(form);
+  
+     document.getElementById('updatebtn').textContent="Updating....";
+    await update(form);
+  
+ 
+ 
    
     
 });

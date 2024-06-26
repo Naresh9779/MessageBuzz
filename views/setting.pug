@@ -13,7 +13,7 @@ include header
                     label.form__label(for='email') Email address
                     input#email.form__input(type='email', value=`${user.email}`, required)
                 .form__group.form__photo-upload
-                    img.form__user-photo#image(src=`/img/users/${user.image}`, alt='User photo')
+                    img.form__user-photo#image(src=`https://messagebuzz.s3.amazonaws.com/img/users/${user.image}`, alt='User photo')
                     input.form__upload(type='file' ,accept='image/*',id='photo',name='photo')
                     label(for='photo') Choose New Photo
                 .form__group.right

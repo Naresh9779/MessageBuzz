@@ -33,7 +33,7 @@ include header
               each u in friends
                
                 li(class="list-group-item list-group-item-dark user-item" id="user-list" data-id=u._id)
-                    img(src=`img/users/${u.image}`,id="avatar", alt="dp")
+                    img(src=`https://messagebuzz.s3.amazonaws.com/img/users/${u.image}`,id="avatar", alt="dp")
                     
                     -if(u.name.length>12)
                      a#user-name= u.name.slice(0,12)+"..."

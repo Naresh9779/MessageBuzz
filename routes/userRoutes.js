@@ -9,7 +9,6 @@ router.use(cookieParser());
 
 
 
-
 router.get('/logout',userController.protect,userController.logOut)
 
 router
@@ -22,7 +21,7 @@ router
 .get(userController.loggedIn)
 .post(userController.loginIn);
 
-router.patch('/updateMe',userController.upload,userController.protect, userController.updateMe)
+router.patch('/updateMe',userController.protect,userController.upload, userController.updateMe)
 router.patch('/updatePassword',userController.protect,userController.updatePassword)
 router.put('/forgot-password',userController.forgotPassword);
 router.patch('/reset-password/:token',userController.resetPassword)

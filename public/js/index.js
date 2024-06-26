@@ -3,7 +3,7 @@ import { loginHelper } from './login';
 import { logout } from "./login";
 import {forgetPassword,resetPassword} from "./auth";
 import { addFriend } from "./addFriend";
-
+import { showAlert } from "./alert.js";
 
 import { initChat } from './chat.js';
 import {initSettings } from './settings.js';
@@ -45,12 +45,21 @@ if(signup){document.getElementById('signupbtn').addEventListener('click',async e
     form.append('email',document.getElementById('email').value)
     form.append('password',document.getElementById('password').value)
     form.append('image',document.getElementById('photo').files[0])
+    
+        document.getElementById('signupbtn').textContent='Registering ..'
+       await  signHelper(form);
+     
+        
+     
+    
+  
+        
+        
 
 
+    
+    
    
-    
-    
-    signHelper(form);
 
 })}
 
@@ -62,8 +71,9 @@ if(login){document.getElementById('loginbtn').addEventListener('click',async e=>
     const password=document.getElementById('password').value;
 
 
-    
-    loginHelper(email,password);
+    document.getElementById('loginbtn').textContent='Loging In ...' 
+   await loginHelper(email,password);
+  
 
 })}
 
