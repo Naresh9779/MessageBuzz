@@ -6,7 +6,7 @@
 ![Socket.io](https://img.shields.io/badge/Socket.io-v4.x-white)
 ![Pug](https://img.shields.io/badge/Pug-v3.x-orange)
 
-MessageBuzz is a real-time chat application built using Node.js, Express.js, MongoDB, Pug, and Socket.io,Rest API. This application allows users to send messages in real-time, view online/offline statuses, update their profiles, reset their passwords, and add random friends.
+MessageBuzz is a real-time chat application built using Node.js, Express.js, MongoDB, Pug, and Socket.io,Rest API **AWS S3**. This application allows users to send messages in real-time, view online/offline statuses, update their profiles, reset their passwords, and add random friends.
 
 ### [API Documentation](https://documenter.getpostman.com/view/29729601/2sA3XY7deX)
 
