@@ -8,7 +8,7 @@ const userController=require('../controllers/userController');
 router
 .get('/signup',userController.loggedIn,viewController.isAuthenticated,viewController.signup)
 .get('/login',userController.loggedIn,viewController.isAuthenticated,viewController.login)
-.get('/',userController.loggedIn,viewController.homePage)
+.get('/*',userController.loggedIn,viewController.homePage)
 .get('/dashboard',userController.protect,viewController.dashboard)
 
 .get('/setting',userController.protect,viewController.setting)
