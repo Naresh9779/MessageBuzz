@@ -166,7 +166,7 @@ const socket = io('/username-space', {
     // console.log(data.reciever.image)
     {
       let newHtml = `<nav class="nav-bar-chat">
-                               <img src="img/users/${data.reciever.image}", id="avatar", alt="dp">
+                               <img src="https://messagebuzz.s3.amazonaws.com/img/users/${data.reciever.image}", id="avatar", alt="dp">
                                <h4>${data.reciever.name}</h4>
                             <nav>`;
                          
