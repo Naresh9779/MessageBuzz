@@ -368,14 +368,17 @@ exports.addFriend=async(req, res, next)=>{
         return next(new AppError('Already Friends',400));
     }
     user.friends.push(friend._id);
+    console.log(friend);
+    console.log(user._id);
     friend.friends.push(user._id)
     await user.save();
+    await friend.save();
     res.status(200).json({
         status:'success',
         data:{
             user
         }
     });
-    next();
+
 
 }

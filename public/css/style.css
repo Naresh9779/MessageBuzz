@@ -1754,4 +1754,7 @@ a[data-toggle="collapse"] {
     #chat-container{
       height: 54vh;
     }
+    #chat-form{
+      gap: .5rem;
+    }
   }
