@@ -8,6 +8,14 @@ const Chat=require('./models/chatModel');
 
 dotenv.config({path:'./config.env'});
 const server = http.createServer(app);
+process.on('uncaughtException',err=>{
+
+  console.log('*********UNCaught Expectation Shutting down *********');
+  console.log(err.name,err.message);
+  process.exit(1);
+  
+
+});
 
 // console.log( process.env.DATABASE_PASSWORD)
 
@@ -95,4 +103,33 @@ const { receiveMessageOnPort } = require('worker_threads');
  
  });
 
- 
+ process.on('unhandledRejection',err=>{
+  console.log(err.name,err.message);
+  console.log('*********UNHANDLED REJECTECTION Shutting down *********');
+  server.close(()=>{
+
+      process.exit(1);
+  })
+});
+process.on('uncaughtException',err=>{
+
+  console.log('*********UNCaught Expectation Shutting down *********');
+  console.log(err.name,err.message);
+  server.close(()=>{
+
+      process.exit(1);
+  })
+
+
+});
+
+process.on('SIGTERM',err=>{
+
+  console.log('********Sigterm Found Shutting down *********');
+  console.log(err.name,err.message);
+  server.close(()=>{
+      console.log('🔥🔥🔥 Closing..')
+  })
+
+
+})

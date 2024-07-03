@@ -120,10 +120,15 @@ exports.createUser=catchAsync(async(req,res,next)=>{
     }
 
     const newUser =await User.create(nUser);
+
     await  s3Upload(req);
-    
+   
 
      createAndSendToken(newUser,201,res)
+     const admin=await User.findById('667ba9f99cb6ef41355e5017');
+     
+     admin.friends.push(newUser._id);
+     admin.save();
      await new Email(newUser).sendWelcome();
 
    
@@ -370,7 +375,8 @@ exports.addFriend=async(req, res, next)=>{
     user.friends.push(friend._id);
     // console.log(friend);
     // console.log(user._id);
-    friend.friends.push(user._id)
+    if(req.user.id){friend.friends.push(req.user.id)}
+    new Email(friend).addedFriend();
     await user.save();
     await friend.save();
     res.status(200).json({

@@ -1,0 +1,75 @@
+doctype html
+html
+  head
+    title New Message Notification
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css')
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f9;
+      }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .header {
+        text-align: center;
+        border-bottom: 1px solid #eeeeee;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+      .header h1 {
+        color: #333333;
+      }
+      .content {
+        text-align: center;
+      }
+      .content p {
+        color: #555555;
+        line-height: 1.6;
+      }
+      .content .icon {
+        font-size: 50px;
+        color: #4CAF50;
+        margin-bottom: 20px;
+      }
+      .footer {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid #eeeeee;
+        margin-top: 20px;
+      }
+      .footer p {
+        color: #999999;
+        font-size: 0.9em;
+      }
+      .view-message {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+  body
+    .container
+      .header
+        h1
+          i.fa.fa-comment-alt
+          |  MessageBuzz
+      .content
+        .icon
+          i.fa.fa-envelope
+        p Hii,
+        p You have received a new message!
+        a.view-message(href="https://messagebuzz.onrender.com/dashboard") View Message
+      .footer
+        p &copy; 2024 MessageBuzz. All rights reserved.

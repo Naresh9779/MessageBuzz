@@ -1,26 +1,38 @@
 
+const { response } = require('../app');
 const Chat=require('../models/chatModel')
 const catchAsync = require('../utils/catchAsync')
+const Email=require('../utils/email')
+const User=require('../models/userModel')
 
-exports.saveChat=async(req,res)=>{
+exports.saveChat=catchAsync(async(req,res)=>{
     // console.log(req.body);
     const {sender_id,reciever_id,message}=req.body;
+
 
     const chat=new Chat({
         sender_id,
         reciever_id,
         message
     })
+    
     await chat.save();
+    const user=await User.findById(reciever_id);
+    if(user.is_active==0)
+{
+    new Email(user).reciveMessage();
+}
+
+
     
 
     res.status(200).json({
         
         status:"success",
     data:chat})
-}
+});
 
-exports.deleteChat=async(req,res)=>{
+exports.deleteChat=catchAsync(async(req,res)=>{
 
 
     const chatId=req.body.id;
@@ -36,4 +48,4 @@ exports.deleteChat=async(req,res)=>{
         status:"success",
         data:null
     })
-}
+});

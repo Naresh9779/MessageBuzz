@@ -37,7 +37,7 @@ async function refreshAccessToken() {
     return tokens.access_token;
   } catch (error) {
     // console.error('Error refreshing access token:', error);
-    return new AppError('Error In Sending Email',500);
+    return next(new AppError('Error In Sending Email',500));
   }
 }
 
@@ -57,7 +57,7 @@ async function newTransport() {
     });
   } catch (error) {
     // console.error('Error creating transport:', error);
-    return new AppError('Error In Sending Email',500);
+    return next( new AppError('Error In Sending Email',500));
   }
 }
 
@@ -110,5 +110,12 @@ module.exports=class email{
  
   async loginSucessfully(){
     await this.send('loginSucessfully','Login Sucessfully');
+  }
+
+  async reciveMessage(){
+    await this.send('recieveMessage',' Check Out!!New Message Recieved');
+  }
+  async addedFriend(){
+    await this.send('addedFriend','You have a new Friend Request');
   }
 }
