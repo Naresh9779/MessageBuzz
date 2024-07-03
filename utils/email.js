@@ -2,31 +2,64 @@ const nodemailer=require('nodemailer')
 const pug=require('pug')
 const path=require('path')
 const dotenv=require('dotenv');
+const AppError=require('../utils/appError')
 dotenv.config({path:'./config.env'});
 
 
 const { google } = require('googleapis');
+
+
 const OAuth2 = google.auth.OAuth2;
 
 // Configure OAuth2 client
-const CLIENT_ID=process.env.CLIENT_ID
-const CLIENT_SECRET=process.env.CLIENT_SECRET
-const REDIRECT_URL=process.env.REDIRECT_URL
-const REFRESH_TOKEN=process.env.REFRESH_TOKEN
-const EMAIL_FROM=process.env.EMAIL_FROM
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
+const REDIRECT_URL = process.env.REDIRECT_URL;
+const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
+const EMAIL_FROM = process.env.EMAIL_FROM;
 
-// console.log(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL)
-// console.log(REFRESH_TOKEN)
 const oauth2Client = new OAuth2(
- CLIENT_ID,
+  CLIENT_ID,
   CLIENT_SECRET,
- REDIRECT_URL // This can be any URL, but must match the one configured in Google Developer Console
+  REDIRECT_URL // This must match the one configured in the Google Developer Console
 );
 
 oauth2Client.setCredentials({
   refresh_token: REFRESH_TOKEN // Replace with the refresh token obtained from OAuth2 flow
 });
 
+async function refreshAccessToken() {
+  try {
+    const response = await oauth2Client.refreshAccessToken();
+    const tokens = response.credentials;
+    oauth2Client.setCredentials(tokens);
+    // console.log('New access token:', tokens.access_token);
+    return tokens.access_token;
+  } catch (error) {
+    // console.error('Error refreshing access token:', error);
+    return new AppError('Error In Sending Email',500);
+  }
+}
+
+async function newTransport() {
+  try {
+    const accessToken = await refreshAccessToken();
+    return nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        type: 'OAuth2',
+        user: EMAIL_FROM,
+        clientId: CLIENT_ID,
+        clientSecret: CLIENT_SECRET,
+        refreshToken: REFRESH_TOKEN,
+        accessToken: accessToken,
+      }
+    });
+  } catch (error) {
+    // console.error('Error creating transport:', error);
+    return new AppError('Error In Sending Email',500);
+  }
+}
 
 module.exports=class email{
     constructor(user,url)
@@ -41,20 +74,6 @@ module.exports=class email{
 
 
 
-   newTransport(){ return nodemailer.createTransport({
-
-    
-    service: 'gmail',
-  auth: {
-    type: 'OAuth2',
-    user:EMAIL_FROM,
-    clientId: CLIENT_ID,
-    clientSecret: CLIENT_SECRET,
-    refreshToken:REFRESH_TOKEN,
-    accessToken: oauth2Client.getAccessToken()
-  }
-  });
-}
 
     async send(template,subject)
  {
@@ -70,7 +89,8 @@ module.exports=class email{
     subject,
     html: html
    }
-   await this.newTransport().sendMail(mailOptions);
+   const transpot=await newTransport();
+   transpot.sendMail(mailOptions);
    console.log('email sent');
 
   }
