@@ -162,7 +162,7 @@ exports.loginIn=catchAsync(async(req,res,next)=>{
     }
     
     createAndSendToken(user,201,res);
-    await new Email(user).loginSucessfully();
+    new Email(user).loginSucessfully();
 
 });
 
@@ -357,7 +357,7 @@ exports.resetPassword=catchAsync(async(req,res,next)=>{
     user.resetTokenExpires=undefined;
     await user.save();
     createAndSendToken(user,200,res);
-    await new Email(user).passwordChanged();
+     new Email(user).passwordChanged();
 });
 
 exports.addFriend=async(req, res, next)=>{

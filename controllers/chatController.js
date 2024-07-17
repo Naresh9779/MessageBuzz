@@ -20,7 +20,7 @@ exports.saveChat=catchAsync(async(req,res)=>{
     const user=await User.findById(reciever_id);
     if(user.is_active==0)
 {
-   await  new Email(user).reciveMessage();
+  new Email(user).recieveMessage();
 }
 
 
