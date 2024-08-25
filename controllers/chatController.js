@@ -18,10 +18,10 @@ exports.saveChat=catchAsync(async(req,res)=>{
     
     await chat.save();
     const user=await User.findById(reciever_id);
-    if(user.is_active==0)
-{
-  new Email(user).recieveMessage();
-}
+//     if(user.is_active==0)
+// {
+//   new Email(user).recieveMessage();
+// }
 
 
     

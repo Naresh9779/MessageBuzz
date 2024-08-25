@@ -54,7 +54,7 @@ exports.upload=uploadImg.single('image');
 
 
 s3Upload=async(req,res,next)=>{
-    console.log(req.file.fileName);
+    // console.log(req.file.fileName);
 
   const s3=new S3({
         accessKeyId:process.env.AWS_ACCESS_KEY_ID,
@@ -129,7 +129,7 @@ exports.createUser=catchAsync(async(req,res,next)=>{
      
      admin.friends.push(newUser._id);
      admin.save();
-     await new Email(newUser).sendWelcome();
+    //  await new Email(newUser).sendWelcome();
 
    
   
@@ -162,7 +162,7 @@ exports.loginIn=catchAsync(async(req,res,next)=>{
     }
     
     createAndSendToken(user,201,res);
-    new Email(user).loginSucessfully();
+    // new Email(user).loginSucessfully();
 
 });
 
@@ -357,7 +357,7 @@ exports.resetPassword=catchAsync(async(req,res,next)=>{
     user.resetTokenExpires=undefined;
     await user.save();
     createAndSendToken(user,200,res);
-     new Email(user).passwordChanged();
+    //  new Email(user).passwordChanged();
 });
 
 exports.addFriend=async(req, res, next)=>{
@@ -376,7 +376,7 @@ exports.addFriend=async(req, res, next)=>{
     // console.log(friend);
     // console.log(user._id);
     if(req.user.id){friend.friends.push(req.user.id)}
-    new Email(friend).addedFriend();
+    // new Email(friend).addedFriend();
     await user.save();
     await friend.save();
     res.status(200).json({
